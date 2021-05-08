@@ -1,24 +1,28 @@
 	
 public class FFT {
 	public SampleData data;
-	public int panjang;
 	public Complex[] xComplex;
 	public Complex[] yComplex;
 	public Complex[] zComplex;
 	
-	public FFT(int panjang, SampleData data) {
-		this.panjang = panjang;
+	public FFT(SampleData data) {
 		this.data = data;
-		this.xComplex = new Complex[panjang];
-		this.yComplex = new Complex[panjang];
-		this.zComplex = new Complex[panjang];
+		int nearestBase2 = (int) Math.pow(2, (int) (Math.log(data.X.size())/Math.log(2)));
+		System.out.println(nearestBase2);
+		this.xComplex = new Complex[nearestBase2];
+		this.yComplex = new Complex[nearestBase2];
+		this.zComplex = new Complex[nearestBase2];
 	}
 	
 	public void convertComplex() {
-		for(int i=0; i<panjang; i++) {
-			xComplex[i] = new Complex(data.X[i],0);
-			yComplex[i] = new Complex(data.Y[i],0);
-			zComplex[i] = new Complex(data.Z[i],0);
+		int length = data.X.size();
+		System.out.println(data.X.size());
+		System.out.println(data.Y.size());
+		System.out.println(data.Z.size());
+		for(int i=0; i<xComplex.length; i++) {
+			xComplex[i] = new Complex(data.X.get(length-1-i),0);
+			yComplex[i] = new Complex(data.Y.get(length-1-i),0);
+			zComplex[i] = new Complex(data.Z.get(length-1-i),0);
 		}
 	}
 	
@@ -51,7 +55,6 @@ public class FFT {
 			int order = bitReverse(i,bit);
 			orderFinal[i] = input[order];
 		}
-		
 		for(int i=2; i<= orderFinal.length; i=i*2 ) {
 			for(int j=0; j<orderFinal.length; j +=i) {
 				for(int k=0; k<i/2; k++) {
@@ -60,7 +63,7 @@ public class FFT {
 					
 					double weight = (-2 * Math.PI * k)/ (double) i;
 					Complex exponential = (new Complex(Math.cos(weight), Math.sin(weight)).multiplication(akhir));
-					
+//					System.out.println(exponential.absolute());
 					orderFinal[j+k] = awal.add(exponential);
 					orderFinal[j+k+(i/2)] = awal.minus(exponential);
 				}

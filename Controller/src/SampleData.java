@@ -1,46 +1,54 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class SampleData {
 	public String sensorId;
-	public double[] X;
-	public double[] Y;
-	public double[] Z;
-	
+	public List<Double> X;
+	public List<Double> Y;
+	public List<Double> Z;
+	public final int MAX;
 	public SampleData(int banyak) {
-		this.X = new double[banyak];
-		this.Y = new double[banyak];
-		this.Z = new double[banyak];
+		MAX = banyak;
+		this.X =  Collections.synchronizedList(new ArrayList<>());
+		this.Y =  Collections.synchronizedList(new ArrayList<>());
+		this.Z =  Collections.synchronizedList(new ArrayList<>());
 	}
 	
-	public void setX(double titikX, int idx) {
-		for (int i =0; i<this.X.length; i++) {
-			this.X[idx] = titikX;
+	public void addX(double titikX) {
+		System.out.println("X"+this.X.size());
+		this.X.add(titikX);
+		if(this.X.size()> MAX) {
+			this.X.remove(0);
 		}
 	}
 	
-	public void setY(double titikY, int idx) {
-		for (int i =0; i<this.Y.length; i++) {
-			this.Y[idx] = titikY;
+	public void addY(double titikY) {
+		System.out.println("Y"+this.Y.size());
+		this.Y.add(titikY);
+		if(this.Y.size()> MAX) {
+			this.Y.remove(0);
 		}
 	}
 	
-	public void setZ(double titikZ, int idx) {
-		for (int i =0; i<this.Z.length; i++) {
-			this.Z[idx] = titikZ;
+	public void addZ(double titikZ) {
+		System.out.println("Z"+this.Z.size());
+		this.Z.add(titikZ);
+		if(this.Z.size()> MAX) {
+			this.Z.remove(0);
 		}
 	}
 	
 	
-	public double[] getX() {
-		return this.X;
+	public Double[] getX() {
+		return this.X.toArray(new Double[this.X.size()]);
 	}
 	
-	public double[] getY() {
-		return this.Y;
+	public Double[] getY() {
+		return this.Y.toArray(new Double[this.Y.size()]);
 	}
 	
-	public double[] getZ() {
-		return this.Z;
+	public Double[] getZ() {
+		return this.Z.toArray(new Double[this.Z.size()]);
 	}
-	
-	
 }

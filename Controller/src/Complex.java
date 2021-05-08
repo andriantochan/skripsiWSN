@@ -41,7 +41,8 @@ public class Complex {
 	}
 	
 	public double absolute() {
-		return Math.sqrt(Math.pow(this.real, this.real) + Math.pow(this.imaginer, this.imaginer));
+		double h = Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imaginer, 2));
+		return h;
 	}
 	
 	public String toString() {

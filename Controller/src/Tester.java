@@ -1,6 +1,9 @@
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,6 +15,8 @@ import org.apache.tools.ant.ProjectHelper;
 import com.virtenio.commander.io.DataConnection;
 import com.virtenio.commander.toolsets.preon32.Preon32Helper;
 
+import javafx.application.Application;
+
 
 public class Tester {
 	
@@ -19,12 +24,12 @@ public class Tester {
 	private static BufferedInputStream bufferedInput;
 	private static DataConnection dataCon;
 	private static boolean sensing;
-	private static HashMap<String,GraphAmplitude> graphAmp;
-	private static HashMap<String,ChartAmplitude> chartAmp;
-	private static HashMap<String,GraphFrequency> graphFreq;
+	private static HashMap<String,StartChart> chartAmp;
+	private static Boolean[] status =  {false,false,false,false,false};
 	
 	
 	public static void main(String[] args) throws Exception {
+		
 		Tester tester = new Tester();
 		tester.context_set("context.set.1");
 		tester.time_synchronize();
@@ -66,39 +71,38 @@ public class Tester {
 				while(bufferedInput.available()>0) {
 					bufferedInput.read(buffer);
 					dataCon.flush();
+					
 					String temp = new String(buffer);
+					String[] temp2 = temp.split(" ");
+					String temp_time = temp2[3].substring(0, 12);
+					long time = Long.parseLong(temp_time);
 					System.out.println();
-					System.out.println(temp);
+					System.out.println(temp2[0] + temp2[1] + "Time:" + timeFormat(time) + temp2[3].substring(12));
 				}
 			}
 			
 			else if(masukan==2) {
 				System.out.println("Sensing...");
 				sensing=true;
-				graphFreq = new HashMap<String,GraphFrequency>();
-				graphAmp = new HashMap<String,GraphAmplitude>();
-				chartAmp = new HashMap<String, ChartAmplitude>();
+				chartAmp = new HashMap<String, StartChart>();
 				
 				for (int i =1; i<=5;i++) {
 					i = i+64;
-					chartAmp.put("Sensor"+(char)i, new ChartAmplitude());
-					
+					StartChart ct = new StartChart();
+					chartAmp.put("Sensor"+(char)i, ct);
+//					new Thread() {
+//						public void run() {
+//						chartAmp.get("Sensor"+(char) 1).main(args);
+//						ct.charts.add(new ChartAmplitude(ct.getSample(), ct.getData(), ""));
+//						ct.charts.add(new ChartFrequency(ct.getSample(), ct.getData(), ""));
+//						}
+//					}.start();
 				}
-				ChartAmplitude ct = chartAmp.get("Sensor"+(char)1);
-				Thread t2 = new Thread() {
-					public void run() {
-						ct.sampleData = new SampleData(64);
-						ct.main(args);
-					}
-				};
-				t2.start();
 				
 				if(threadSensing==null) {
+					
 					threadSensing = new Thread() {
 						public void run() {
-							SampleData data = new SampleData(64);
-							int counter=0;
-							Complex[] res = new Complex[64];
 							while(sensing) {
 								byte[] buffer = new byte[1024];
 								try {
@@ -106,45 +110,27 @@ public class Tester {
 										bufferedInput.read(buffer);
 										dataCon.flush();
 										String temp = new String(buffer);
-										System.out.println(temp);
 										String[] hasil = temp.split(",");
-										
-										
 										if(hasil[0].charAt(0)=='2') {
-											
-											//Sample Data
-											data.sensorId = hasil[0];
-											data.setX(Double.parseDouble(String.format("%.4f", Double.parseDouble(hasil[1]))),counter);
-											data.setY(Double.parseDouble(String.format("%.4f", Double.parseDouble(hasil[2]))),counter);
-											data.setZ(Double.parseDouble(String.format("%.4f", Double.parseDouble(hasil[3]))),counter);
-
-											
-											counter+=1;
-											
-											if(counter == 64) {
-												counter = 0;
-												ct.sampleData = data;
+											String sensorid = hasil[0].substring(1);
+											chartAmp.get(sensorid).addData(hasil);
+											int i = sensorid.charAt(sensorid.length()-1) - 'A';
+											if(status[i] == false) {
+												status[i] = true;
+												final StartChart ct = chartAmp.get(sensorid);
+												new Thread() {
+													public void run() {
+														ct.main(args);	
+													}
+												}.start();
+												ct.charts.add(new ChartAmplitude(ct.getSample(), ct.getData(), ""));
+												ct.charts.add(new ChartFrequency(ct.getSample(), ct.getData(), ""));
+												System.out.println(ct.charts.size());
 											}
-//											
-//											if(counter==64) {
-//												System.out.println("proses mulai");
-//												String sensor = hasil[0].substring(1,hasil[0].length());
-//												//Perhitungan FFT
-//												FFT computeFFT = new FFT(64, data);
-//												computeFFT.convertComplex();
-//												Complex[] tempRes = computeFFT.fft(computeFFT.xComplex);		
-//												for(int i=0;i<tempRes.length;i++) {
-//													if(!Double.isNaN(tempRes[i].absolute())) {
-//														System.out.println(tempRes[i].absolute());
-//														graphAmp.get(sensor).plotMaker.realTimeVisual(i+"", tempRes[i].absolute()+"");
-//														graphAmp.get(sensor).canPlot=true;
-//													}
-//												}
-//												
-//												counter=0;
-//											}
-											
+											System.out.println(chartAmp.get(sensorid).charts.size());
+											System.out.println(sensorid);
 										}
+										
 									}
 								}
 								catch(NumberFormatException e) {
@@ -189,6 +175,12 @@ public class Tester {
 			consoleLogger.setOutputPrintStream(System.out);
 			consoleLogger.setMessageOutputLevel(Project.MSG_INFO);
 			return consoleLogger;
+		}
+		
+		private static String timeFormat(long timeMillis) {
+			Date date = new Date(timeMillis);
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss:SSS");
+			return simpleDateFormat.format(date);
 		}
 
 		// ant build time synchronize

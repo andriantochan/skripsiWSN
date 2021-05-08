@@ -16,9 +16,10 @@ import com.virtenio.commander.io.DataConnection;
 import com.virtenio.commander.toolsets.preon32.Preon32Helper;
 
 import javafx.application.Application;
+import javafx.stage.Stage;
 
 
-public class Tester {
+public class Tester extends Application{
 	
 	private static Thread threadSensing;
 	private static BufferedInputStream bufferedInput;
@@ -27,6 +28,9 @@ public class Tester {
 	private static HashMap<String,StartChart> chartAmp;
 	private static Boolean[] status =  {false,false,false,false,false};
 	
+	public static StartChart getChart(String sensorid) {
+		return chartAmp.get(sensorid);
+	}
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -123,8 +127,6 @@ public class Tester {
 														ct.main(args);	
 													}
 												}.start();
-												ct.charts.add(new ChartAmplitude(ct.getSample(), ct.getData(), ""));
-												ct.charts.add(new ChartFrequency(ct.getSample(), ct.getData(), ""));
 												System.out.println(ct.charts.size());
 											}
 											System.out.println(chartAmp.get(sensorid).charts.size());
@@ -220,6 +222,13 @@ public class Tester {
 				antProject.fireBuildFinished(null);
 			} catch (BuildException e) {
 			}
+		}
+
+		@Override
+		public void start(Stage primaryStage) throws Exception {
+			primaryStage.setTitle("Grafik Amplitudo");
+			primaryStage.show();
+//			primaryStage.setScene(getScene());
 		}
 
 }

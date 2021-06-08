@@ -1,6 +1,5 @@
 package SensorNode;
 import java.io.IOException;
-import java.util.Date;
 
 import com.virtenio.driver.device.at86rf231.AT86RF231;
 import com.virtenio.driver.device.at86rf231.AT86RF231RadioDriver;
@@ -88,7 +87,7 @@ public class SensorManager {
 						System.out.println(str);
 						if(str.substring(0, 2).equalsIgnoreCase("@1")) {
 							long curTime = Time.currentTimeMillis();
-							send("1" + sensorId + " online "+ curTime, SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);
+							send("1" + sensorId + " online "+ curTime+"\n", SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);
 						}
 						else if(str.substring(0, 2).equalsIgnoreCase("@2")) {
 							System.out.println("Sensing start");
@@ -99,9 +98,11 @@ public class SensorManager {
 									try {
 										while(sensing) {
 											resTemp = accel.sensing();
-											String message = "2"+sensorId+", "+resTemp[0]+", "+resTemp[1]+", "+resTemp[2];
-											send(message, SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);	
-											Thread.sleep(100);
+											String message = "2"+sensorId+", "+resTemp[0]+", "+resTemp[1]+", "+resTemp[2]+"\n";
+											if(message.length() > 1) {
+												send(message, SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);	
+												Thread.sleep(100);
+											}
 										}
 									}
 									catch (InterruptedException e) {

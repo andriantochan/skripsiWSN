@@ -704,8 +704,8 @@
 	3		capacity()I
 	2		size()I
 
-271		SensorNode/SensorManager$1
-	261		run()V
+278		SensorNode/SensorManager$1
+	268		run()V
 	10		<init>(Lcom/virtenio/radio/ieee_802_15_4/FrameIO;)V
 
 255		com/virtenio/vm/event/AsyncEvent
@@ -815,6 +815,10 @@
 	24		<init>(Ljava/util/AbstractList;)V
 	16		hasNext()Z
 
+166		SensorNode/SensorManager$1$1
+	156		run()V
+	10		<init>(LSensorNode/SensorManager$1;)V
+
 164		java/util/AbstractList$SubAbstractList$SubAbstractListIterator
 	26		<init>(Ljava/util/ListIterator;Ljava/util/AbstractList$SubAbstractList;II)V
 	21		next()Ljava/lang/Object;
@@ -826,10 +830,6 @@
 	14		hasPrevious()Z
 	7		nextIndex()I
 	6		set(Ljava/lang/Object;)V
-
-159		SensorNode/SensorManager$1$1
-	149		run()V
-	10		<init>(LSensorNode/SensorManager$1;)V
 
 131		com/virtenio/driver/flash/FlashInputStream
 	57		read([BII)I

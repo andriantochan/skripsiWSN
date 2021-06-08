@@ -3,7 +3,6 @@ package BaseStation;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
-
 import com.virtenio.driver.device.at86rf231.AT86RF231;
 import com.virtenio.driver.device.at86rf231.AT86RF231RadioDriver;
 import com.virtenio.driver.usart.NativeUSART;
@@ -37,7 +36,9 @@ public class BaseStation {
 	private static int curr = node_list[0];
 	
 	private static int[] connectedNode = new int[] {
-		node_list[1]	
+		node_list[1],
+		node_list[2],
+		node_list[3]
 	};
 	
 	public static HashMap<String, Integer> addressNodeMap;
@@ -61,7 +62,6 @@ public class BaseStation {
 		catch (Exception e) {
 
 		}
-		System.out.println(message);
 	}
 	
 	public static void main(String[] args) throws USARTException {
@@ -103,7 +103,7 @@ public class BaseStation {
 							input = usart.read();
 							if(input == 1 ) {
 								long curTime = Time.currentTimeMillis();
-								tempRes = new String("#Base Station Online "+ curTime+"#");
+								tempRes = new String("BaseStation online "+ curTime);
 								output.write(tempRes.getBytes());
 								System.out.println();
 								usart.flush();

@@ -24,5 +24,9 @@
 	
 	<target name="context.set.3">
 				<switchContext to="config/context3.properties" />
-		</target>
+	</target>
+	
+	<target name="context.set.4">
+					<switchContext to="config/context4.properties" />
+	</target>
 </project>

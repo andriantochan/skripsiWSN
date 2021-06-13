@@ -4,11 +4,17 @@ public class DataFrequency {
     public Double X;
     public Double Y;
     public Double Z;
-
+    private int counter = 0;
+    private RenderChart rc;
+    
     public DataFrequency() {
         this.X = 0.0;
         this.Y = 0.0;
         this.Z = 0.0;
+    }
+    
+    public void setRender(RenderChart rc) {
+    	this.rc =rc;
     }
 
     public Double getX() {
@@ -33,5 +39,10 @@ public class DataFrequency {
 
     public void setZ(double Z) {
         this.Z = Z;
+        counter++;
+        if(counter == 32) {
+        	counter = 0;
+        	rc.render();
+        }
     }
 }

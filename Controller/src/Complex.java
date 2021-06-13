@@ -40,7 +40,7 @@ public class Complex {
     }
 
     public double absolute() {
-        double h = Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imaginer, 2));
+        double h = Math.sqrt(this.real*this.real + this.imaginer*this.imaginer);
         return h;
     }
 

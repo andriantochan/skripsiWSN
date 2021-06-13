@@ -9,7 +9,7 @@ header {
 	interfacePoolOffset 632
 	implementsPoolOffset 668
 	methodPoolOffset 756
-	codePoolOffset 12188
+	codePoolOffset 12192
 	stringPoolOffset 11592
 	mainMethodIndex 0
 	staticPrimitiveFieldCount 5
@@ -18,8 +18,8 @@ header {
 	interfaceCount 18
 	implementsCount 22
 	methodCount 903
-	codePoolSize 38464
-	stringCount 58
+	codePoolSize 38478
+	stringCount 59
 }
 classes [
 	{
@@ -3437,18 +3437,18 @@ methods [
 		getter1For -1
 		getter2For -1
 		pcToLine {
-			0 19
-			11 20
-			16 25
-			31 26
-			45 27
-			59 28
-			73 29
-			87 30
-			101 31
-			115 32
-			123 39
-			133 40
+			0 18
+			11 19
+			16 24
+			31 25
+			45 26
+			59 27
+			73 28
+			87 29
+			101 30
+			115 31
+			123 38
+			133 39
 		}
 		pcTranslation {
 			0 0
@@ -3535,7 +3535,7 @@ methods [
 			}
 		]
 		pcToLine {
-			0 17
+			0 16
 		}
 		pcTranslation {
 			0 0
@@ -3567,10 +3567,10 @@ methods [
 			}
 		]
 		pcToLine {
-			0 44
-			7 45
-			17 46
-			20 47
+			0 43
+			7 44
+			17 45
+			20 46
 		}
 		pcTranslation {
 			0 0
@@ -3620,15 +3620,15 @@ methods [
 			}
 		]
 		pcToLine {
-			0 51
-			7 52
-			11 53
-			29 54
-			38 55
-			47 56
-			51 60
-			54 58
-			55 61
+			0 50
+			7 51
+			11 52
+			29 53
+			38 54
+			47 55
+			51 59
+			54 57
+			55 60
 		}
 		pcTranslation {
 			0 0
@@ -3719,16 +3719,16 @@ methods [
 			}
 		]
 		pcToLine {
-			0 64
-			6 66
-			15 67
-			23 68
-			29 69
-			35 70
-			44 72
-			49 76
-			52 74
-			53 77
+			0 63
+			6 65
+			15 66
+			23 67
+			29 68
+			35 69
+			44 71
+			49 75
+			52 73
+			53 76
 		}
 		pcTranslation {
 			0 0
@@ -3792,9 +3792,9 @@ methods [
 			}
 		]
 		pcToLine {
-			0 80
-			9 137
-			13 138
+			0 79
+			9 136
+			13 137
 		}
 		pcTranslation {
 			0 0
@@ -3822,7 +3822,7 @@ methods [
 		getter1For -1
 		getter2For -1
 		pcToLine {
-			0 17
+			0 16
 		}
 		pcTranslation {
 			0 0
@@ -3844,7 +3844,7 @@ methods [
 		getter1For -1
 		getter2For -1
 		pcToLine {
-			0 17
+			0 16
 		}
 		pcTranslation {
 			0 0
@@ -46842,7 +46842,7 @@ methods [
 			}
 		]
 		pcToLine {
-			0 80
+			0 79
 		}
 		pcTranslation {
 			0 0
@@ -46863,27 +46863,27 @@ methods [
 		exceptionCount 1
 		argsFieldCount 1
 		flags 131112
-		codeLength 251
+		codeLength 258
 		codeOffset 36885
 		getter1For -1
 		getter2For -1
 		localVars [
 			{
 				startPC 63
-				length 33
+				length 38
 				name curTime
 				descriptor J
 				index 4
 			}
 			{
-				startPC 143
+				startPC 150
 				length 5
 				name sensingThread
 				descriptor Ljava/lang/Thread;
 				index 4
 			}
 			{
-				startPC 178
+				startPC 185
 				length 19
 				name message
 				descriptor Ljava/lang/String;
@@ -46891,62 +46891,62 @@ methods [
 			}
 			{
 				startPC 19
-				length 205
+				length 210
 				name content
 				descriptor "[B"
 				index 2
 			}
 			{
 				startPC 32
-				length 193
+				length 198
 				name str
 				descriptor Ljava/lang/String;
 				index 3
 			}
 			{
 				startPC 0
-				length 233
+				length 238
 				name this
 				descriptor LSensorNode/SensorManager$1;
 				index 0
 			}
 			{
 				startPC 8
-				length 225
+				length 230
 				name frame
 				descriptor Lcom/virtenio/radio/ieee_802_15_4/Frame;
 				index 1
 			}
 		]
 		pcToLine {
-			0 82
-			8 85
-			14 86
-			19 87
-			32 88
-			40 89
-			57 90
-			63 91
-			99 92
-			102 93
-			119 94
-			129 96
-			134 97
-			143 115
-			147 117
-			150 118
-			167 119
-			174 120
-			178 121
-			190 122
-			195 123
-			198 125
-			215 126
-			229 127
-			239 128
-			244 133
-			247 131
-			248 133
+			0 81
+			8 84
+			14 85
+			19 86
+			32 87
+			40 88
+			57 89
+			63 90
+			106 91
+			109 92
+			126 93
+			136 95
+			141 96
+			150 114
+			154 116
+			157 117
+			174 118
+			181 119
+			185 120
+			197 121
+			202 122
+			205 124
+			222 125
+			236 126
+			246 127
+			251 132
+			254 130
+			255 132
 		}
 		pcTranslation {
 			0 0
@@ -46988,73 +46988,75 @@ methods [
 			71 78
 			73 80
 			76 84
-			79 88
-			82 91
-			85 94
-			86 94
-			89 96
-			92 99
-			95 102
-			96 103
-			97 104
-			98 105
-			101 109
+			78 87
+			81 91
+			84 95
+			87 98
+			90 101
+			91 101
+			94 103
+			97 106
+			100 109
+			101 110
+			102 111
 			103 112
 			106 116
-			109 119
-			112 123
+			108 119
+			111 123
 			114 126
-			117 129
-			118 130
-			121 134
-			124 134
-			125 138
-			126 139
-			129 142
-			131 143
-			133 144
-			136 147
-			139 150
-			140 151
-			141 152
-			142 153
-			145 157
+			117 130
+			119 133
+			122 136
+			123 137
+			126 141
+			129 141
+			130 145
+			131 146
+			134 149
+			136 150
+			138 151
+			141 154
+			144 157
+			145 158
+			146 159
 			147 160
 			150 164
-			153 167
-			156 171
-			159 174
-			161 177
-			163 178
-			165 179
-			168 182
-			171 185
-			172 185
-			175 187
-			178 190
-			179 191
-			182 195
-			185 198
-			186 199
-			187 200
-			188 201
-			191 205
+			152 167
+			155 171
+			158 174
+			161 178
+			164 181
+			166 184
+			168 185
+			170 186
+			173 189
+			176 192
+			177 192
+			180 194
+			183 197
+			184 198
+			187 202
+			190 205
+			191 206
+			192 207
 			193 208
 			196 212
-			199 215
-			201 218
-			204 221
-			207 224
-			208 224
-			211 226
-			214 229
-			217 233
+			198 215
+			201 219
+			204 222
+			206 225
+			209 228
+			212 231
+			213 231
+			216 233
 			219 236
-			222 239
-			223 240
-			226 244
-			229 247
-			230 248
+			222 240
+			224 243
+			227 246
+			228 247
+			231 251
+			234 254
+			235 255
 		}
 	}
 	{
@@ -47068,7 +47070,7 @@ methods [
 		argsFieldCount 2
 		flags 192
 		codeLength 10
-		codeOffset 37136
+		codeOffset 37143
 		getter1For -1
 		getter2For -1
 		localVars [
@@ -47088,7 +47090,7 @@ methods [
 			}
 		]
 		pcToLine {
-			0 97
+			0 96
 		}
 		pcTranslation {
 			0 0
@@ -47109,27 +47111,27 @@ methods [
 		exceptionCount 2
 		argsFieldCount 1
 		flags 40
-		codeLength 129
-		codeOffset 37166
+		codeLength 136
+		codeOffset 37173
 		getter1For -1
 		getter2For -1
 		localVars [
 			{
-				startPC 82
+				startPC 89
 				length 23
 				name message
 				descriptor Ljava/lang/String;
 				index 1
 			}
 			{
-				startPC 116
+				startPC 123
 				length 4
 				name e
 				descriptor Ljava/lang/InterruptedException;
 				index 1
 			}
 			{
-				startPC 124
+				startPC 131
 				length 4
 				name e
 				descriptor Ljava/lang/Exception;
@@ -47137,26 +47139,26 @@ methods [
 			}
 			{
 				startPC 0
-				length 108
+				length 113
 				name this
 				descriptor LSensorNode/SensorManager$1$1;
 				index 0
 			}
 		]
 		pcToLine {
-			0 100
-			7 101
-			18 102
-			82 103
-			96 104
-			109 105
-			112 112
-			115 107
-			116 108
-			120 112
-			123 110
-			124 111
-			128 113
+			0 99
+			7 100
+			18 101
+			89 102
+			103 103
+			116 104
+			119 111
+			122 106
+			123 107
+			127 111
+			130 109
+			131 110
+			135 112
 		}
 		pcTranslation {
 			0 0
@@ -47186,26 +47188,28 @@ methods [
 			57 72
 			58 73
 			61 77
-			64 81
-			65 82
-			66 83
-			69 86
-			72 89
-			73 89
-			76 91
-			79 93
-			82 96
-			85 105
-			88 109
-			91 112
-			94 115
-			95 116
-			96 117
-			99 120
-			102 123
-			103 124
-			104 125
-			107 128
+			63 80
+			66 84
+			69 88
+			70 89
+			71 90
+			74 93
+			77 96
+			78 96
+			81 98
+			84 100
+			87 103
+			90 112
+			93 116
+			96 119
+			99 122
+			100 123
+			101 124
+			104 127
+			107 130
+			108 131
+			109 132
+			112 135
 		}
 	}
 	{
@@ -47219,7 +47223,7 @@ methods [
 		argsFieldCount 1
 		flags 192
 		codeLength 6
-		codeOffset 37295
+		codeOffset 37309
 		getter1For -1
 		getter2For -1
 		localVars [
@@ -47251,7 +47255,7 @@ methods [
 		argsFieldCount 1
 		flags 64
 		codeLength 60
-		codeOffset 37301
+		codeOffset 37315
 		getter1For -1
 		getter2For -1
 		localVars [
@@ -47331,7 +47335,7 @@ methods [
 		argsFieldCount 1
 		flags 0
 		codeLength 45
-		codeOffset 37361
+		codeOffset 37375
 		getter1For -1
 		getter2For -1
 		localVars [
@@ -47424,7 +47428,7 @@ methods [
 		argsFieldCount 3
 		flags 131264
 		codeLength 37
-		codeOffset 37406
+		codeOffset 37420
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47469,7 +47473,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 5
-		codeOffset 37443
+		codeOffset 37457
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47494,7 +47498,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 20
-		codeOffset 37448
+		codeOffset 37462
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47526,7 +47530,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 5
-		codeOffset 37468
+		codeOffset 37482
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47551,7 +47555,7 @@ methods [
 		argsFieldCount 3
 		flags 131168
 		codeLength 34
-		codeOffset 37493
+		codeOffset 37507
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47603,7 +47607,7 @@ methods [
 		argsFieldCount 2
 		flags 131168
 		codeLength 37
-		codeOffset 37547
+		codeOffset 37561
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47656,7 +47660,7 @@ methods [
 		argsFieldCount 5
 		flags 131168
 		codeLength 39
-		codeOffset 37604
+		codeOffset 37618
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47711,7 +47715,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 6
-		codeOffset 37643
+		codeOffset 37657
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47735,7 +47739,7 @@ methods [
 		argsFieldCount 3
 		flags 196672
 		codeLength 35
-		codeOffset 37649
+		codeOffset 37663
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47782,7 +47786,7 @@ methods [
 		argsFieldCount 2
 		flags 196672
 		codeLength 15
-		codeOffset 37684
+		codeOffset 37698
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47811,7 +47815,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 37699
+		codeOffset 37713
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47837,7 +47841,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37707
+		codeOffset 37721
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47861,7 +47865,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 37714
+		codeOffset 37728
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47887,7 +47891,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37722
+		codeOffset 37736
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47911,7 +47915,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 37729
+		codeOffset 37743
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47937,7 +47941,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37737
+		codeOffset 37751
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47961,7 +47965,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 16
-		codeOffset 37744
+		codeOffset 37758
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -47990,7 +47994,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37760
+		codeOffset 37774
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48020,7 +48024,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 11
-		codeOffset 37776
+		codeOffset 37790
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48046,7 +48050,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 12
-		codeOffset 37787
+		codeOffset 37801
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48074,7 +48078,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 14
-		codeOffset 37799
+		codeOffset 37813
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48101,7 +48105,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37813
+		codeOffset 37827
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48131,7 +48135,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 14
-		codeOffset 37829
+		codeOffset 37843
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48158,7 +48162,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37843
+		codeOffset 37857
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48188,7 +48192,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 14
-		codeOffset 37859
+		codeOffset 37873
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48215,7 +48219,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37873
+		codeOffset 37887
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48245,7 +48249,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 14
-		codeOffset 37889
+		codeOffset 37903
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48272,7 +48276,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37903
+		codeOffset 37917
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48302,7 +48306,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37919
+		codeOffset 37933
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48326,7 +48330,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 37926
+		codeOffset 37940
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48352,7 +48356,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37934
+		codeOffset 37948
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48376,7 +48380,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 37941
+		codeOffset 37955
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48402,7 +48406,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 14
-		codeOffset 37949
+		codeOffset 37963
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48429,7 +48433,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 16
-		codeOffset 37963
+		codeOffset 37977
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48459,7 +48463,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 9
-		codeOffset 37979
+		codeOffset 37993
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48485,7 +48489,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 10
-		codeOffset 37988
+		codeOffset 38002
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48513,7 +48517,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 37998
+		codeOffset 38012
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48537,7 +48541,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 38005
+		codeOffset 38019
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48563,7 +48567,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38013
+		codeOffset 38027
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48587,7 +48591,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 21
-		codeOffset 38020
+		codeOffset 38034
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48625,7 +48629,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 24
-		codeOffset 38041
+		codeOffset 38055
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48666,7 +48670,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38065
+		codeOffset 38079
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48690,7 +48694,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 38072
+		codeOffset 38086
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48716,7 +48720,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38080
+		codeOffset 38094
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48740,7 +48744,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 38087
+		codeOffset 38101
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48766,7 +48770,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38095
+		codeOffset 38109
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48790,7 +48794,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 38102
+		codeOffset 38116
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48816,7 +48820,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38110
+		codeOffset 38124
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48840,7 +48844,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38117
+		codeOffset 38131
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48864,7 +48868,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 38
-		codeOffset 38124
+		codeOffset 38138
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48914,7 +48918,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 2
-		codeOffset 38162
+		codeOffset 38176
 		getter1For 0
 		getter2For -1
 		pcToLine {
@@ -48937,7 +48941,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38164
+		codeOffset 38178
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48961,7 +48965,7 @@ methods [
 		argsFieldCount 2
 		flags 131136
 		codeLength 8
-		codeOffset 38171
+		codeOffset 38185
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -48987,7 +48991,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 16
-		codeOffset 38179
+		codeOffset 38193
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -49020,7 +49024,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 7
-		codeOffset 38195
+		codeOffset 38209
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -49044,7 +49048,7 @@ methods [
 		argsFieldCount 3
 		flags 131136
 		codeLength 83
-		codeOffset 38202
+		codeOffset 38216
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -49139,7 +49143,7 @@ methods [
 		argsFieldCount 5
 		flags 131136
 		codeLength 40
-		codeOffset 38285
+		codeOffset 38299
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -49205,7 +49209,7 @@ methods [
 		argsFieldCount 1
 		flags 131136
 		codeLength 122
-		codeOffset 38325
+		codeOffset 38339
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -49323,7 +49327,7 @@ methods [
 		argsFieldCount 1
 		flags 131072
 		codeLength 17
-		codeOffset 38447
+		codeOffset 38461
 		getter1For -1
 		getter2For -1
 		pcToLine {
@@ -50119,11 +50123,11 @@ strings [
 	}
 	{
 		index 3
-		string "Invalid boolean property: "
+		string "\n"
 	}
 	{
 		index 4
-		string SensorCwaiting...
+		string "Invalid boolean property: "
 	}
 	{
 		index 5
@@ -50147,91 +50151,91 @@ strings [
 	}
 	{
 		index 10
-		string "1SensorC online "
-	}
-	{
-		index 11
 		string "0X"
 	}
 	{
-		index 12
+		index 11
 		string radio.panid
 	}
 	{
-		index 13
+		index 12
 		string "."
 	}
 	{
-		index 14
+		index 13
 		string " ,;"
 	}
 	{
-		index 15
+		index 14
 		string "0"
 	}
 	{
-		index 16
+		index 15
 		string ", end="
 	}
 	{
-		index 17
-		string "2SensorC, "
-	}
-	{
-		index 18
+		index 16
 		string beacon
 	}
 	{
-		index 19
+		index 17
+		string "2SensorA, "
+	}
+	{
+		index 18
 		string "null"
 	}
 	{
-		index 20
+		index 19
 		string "4"
 	}
 	{
-		index 21
+		index 20
 		string "1.2"
 	}
 	{
-		index 22
+		index 21
 		string "1.3"
 	}
 	{
-		index 23
+		index 22
 		string ", len="
 	}
 	{
-		index 24
+		index 23
 		string "1.4"
 	}
 	{
-		index 25
+		index 24
 		string "1.5"
 	}
 	{
-		index 26
+		index 25
 		string "true"
 	}
 	{
-		index 27
+		index 26
 		string cmd
 	}
 	{
-		index 28
+		index 27
 		string "="
 	}
 	{
-		index 29
+		index 28
 		string "?"
 	}
 	{
-		index 30
+		index 29
 		string " > "
 	}
 	{
-		index 31
+		index 30
 		string "; "
+	}
+	{
+		index 31
+		string SensorAwaiting...
 	}
 	{
 		index 32
@@ -50259,82 +50263,86 @@ strings [
 	}
 	{
 		index 38
-		string "start > end: "
+		string "1SensorA online "
 	}
 	{
 		index 39
-		string "Illegal frame length: "
+		string "start > end: "
 	}
 	{
 		index 40
-		string "[]"
+		string "Illegal frame length: "
 	}
 	{
 		index 41
-		string " 	\n\r"
+		string "[]"
 	}
 	{
 		index 42
-		string "false"
+		string " 	\n\r"
 	}
 	{
 		index 43
-		string "Comparison method violates its general contract!"
+		string "false"
 	}
 	{
 		index 44
-		string "Length: "
+		string "Comparison method violates its general contract!"
 	}
 	{
 		index 45
-		string "(this Collection)"
+		string "Length: "
 	}
 	{
 		index 46
-		string ", VN="
+		string "(this Collection)"
 	}
 	{
 		index 47
-		string ", MID1="
+		string ", VN="
 	}
 	{
 		index 48
-		string "Error Code: "
+		string ", MID1="
 	}
 	{
 		index 49
-		string "@1"
+		string "Error Code: "
 	}
 	{
 		index 50
-		string "@2"
+		string "@1"
 	}
 	{
 		index 51
-		string "State: "
+		string "@2"
 	}
 	{
 		index 52
-		string "@3"
+		string "State: "
 	}
 	{
 		index 53
-		string ", "
+		string "@3"
 	}
 	{
 		index 54
-		string "@4"
+		string ", "
 	}
 	{
 		index 55
-		string " to "
+		string "@4"
 	}
 	{
 		index 56
-		string "Exit from the program"
+		string " to "
 	}
 	{
 		index 57
+		string "Exit from the program"
+	}
+	{
+		index 58
 		string PN=
 	}
 ]

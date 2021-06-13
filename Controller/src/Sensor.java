@@ -57,11 +57,11 @@ public class Sensor extends Application {
         return consoleLogger;
     }
 
-//    private static String timeFormat(long timeMillis) {
-//        Date date = new Date(timeMillis);
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
-//        return simpleDateFormat.format(date);
-//    }
+    private static String timeFormat(long timeMillis) {
+        Date date = new Date(timeMillis);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+        return simpleDateFormat.format(date);
+    }
 
     // ant build time synchronize
     private void time_synchronize() throws Exception {
@@ -124,7 +124,8 @@ public class Sensor extends Application {
             @Override
             public void run() {
 
-                //Input User
+                Long current = System.currentTimeMillis();
+                //Input User	
                 try {
                 	Scanner sc = new Scanner(System.in);
                 	context_set("context.set.1");
@@ -154,7 +155,6 @@ public class Sensor extends Application {
                         } else {
                         	dataCon.write(masukan);
                         }
-
                         byte[] buffer = new byte[1024];
                         if (masukan == 1) {
                             System.out.println("Online Node : ");
@@ -162,10 +162,19 @@ public class Sensor extends Application {
 			                while (bufferedInput.available() > 0) {
 			                    bufferedInput.read(buffer);
 			                    dataCon.flush();
-			
-			                    String temp = new String(buffer);
-			                    System.out.println(temp);
 			                    
+			                    String temp = new String(buffer).trim();
+			                    String[] lines = temp.split("\n");
+			                    for(String s : lines) {
+			                    	String[] words = s.split(" ");
+			                    	if(words[0].charAt(0) == '1') {
+
+				                    	System.out.printf("%s %s %s\n",words[0],words[1],timeFormat(current));
+			                    	}else {
+
+				                    	System.out.printf("%s %s %s\n",words[0],words[1],timeFormat(current));
+			                    	}
+			                    }
 			                }
                         } else if (masukan == 2) {
                             System.out.println("Sensing...");
@@ -176,31 +185,18 @@ public class Sensor extends Application {
                                     public void run() {
                                         while (sensing) {
                                             try {
-                                                Thread.sleep(500);
-                                            } catch (InterruptedException ex) {
-                                                Logger.getLogger(Sensor.class.getName()).log(Level.SEVERE, null, ex);
-                                            }
-                                            try {
-
-		                                        System.out.println("MASUK"+bufferedInput.available());
 			                                    if (bufferedInput.available() > 0) {
 			                                    	byte[] bytes = new byte[1024];
 			                                        BufferedReader br = new BufferedReader(new InputStreamReader(dataCon.getInputStream()));
 			                                        dataCon.flush();
 			                                        String temp = br.readLine();
+//			                                        System.out.println(temp);
 			                                        System.out.println(temp);
-			                                        System.out.println(temp);
-				                                        String[] hasil = temp.split(",");
-				                                        if (hasil[0].charAt(0) == '2') {
-				                                            String sensorid = hasil[0].substring(1);
-				                                            final StartChart ct = getChart(sensorid);
-				                                            ct.addData(hasil);
-				//                                            System.out.println(id);
-				//                                            System.out.println(chartAmp.size());
-				//                                            System.out.println(ct.charts.size());
-				//                                    System.out.println(chartAmp.get(sensorid).charts.size());
-				//                                    System.out.println(sensorid);
-//				                                        }
+			                                        String[] hasil = temp.split(",");
+			                                        if (hasil[0].charAt(0) == '2') {
+			                                            String sensorid = hasil[0].substring(1);
+			                                            final StartChart ct = getChart(sensorid);
+														ct.addData(hasil);
 			                                        }
 			                                        br.close();
 			                                    }

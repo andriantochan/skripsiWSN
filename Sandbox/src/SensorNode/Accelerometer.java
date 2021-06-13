@@ -29,9 +29,10 @@ public class Accelerometer {
 		float[] res = new float[3];
 		sensorAccel.getValuesRaw(resTemp, 0);
 		sensorAccel.convertRaw(resTemp, 0, res, 0);
-		for (int i =0; i<3; i++) {
-			res[i] *= sensorAccel.getConversionScale();
-		}
+//		for (int i =0; i<3; i++) {
+//			res[i] *= sensorAccel.getConversionScale();
+//			
+//		}
 		return res;
 	}
 }

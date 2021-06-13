@@ -37,7 +37,9 @@ public class StartChart {
 
     public Scene getScene() {
         charts.add(new ChartAmplitude(this.getSample(), this.getData(), sensorId));
+        this.getSample().setRender(charts.get(0));
         charts.add(new ChartFrequency(this.getSample(), this.getData(), sensorId));
+        this.getData().setRender(charts.get(1));
         AnchorPane ap = new AnchorPane();
         int i = 0;
         int height = 400;
@@ -59,9 +61,6 @@ public class StartChart {
             this.getSample().addX(Double.parseDouble(hasil[1]));
             this.getSample().addY(Double.parseDouble(hasil[2]));
             this.getSample().addZ(Double.parseDouble(hasil[3]));
-//            this.getSample().addX(Math.random() * 100);
-//            this.getSample().addY(Math.random() * 100);
-//            this.getSample().addZ(Math.random() * 100);
 
             // Perhitungan FFT
             FFT computeFFT = new FFT(this.getSample());
@@ -73,7 +72,7 @@ public class StartChart {
             DecimalFormat df = new DecimalFormat("#.####");
             for (int i = 0; i < tempRes1.length; i++) {
                 t1 += tempRes1[i].absolute();
-                t2 += tempRes2[i].absolute();
+                t2 += tempRes2[i].absolute();	
                 t3 += tempRes3[i].absolute();
             }
             t1/= tempRes1.length;
@@ -83,6 +82,10 @@ public class StartChart {
             this.getData().setX(Double.parseDouble(df.format(t1)));
             this.getData().setY(Double.parseDouble(df.format(t2)));
             this.getData().setZ(Double.parseDouble(df.format(t3)));
+            
+            t1 = 0;
+            t2 = 0;
+            t3 = 0;
         }
     }
 
@@ -98,13 +101,24 @@ public class StartChart {
     }
 }
 
-abstract class Chart {
+abstract class Chart implements RenderChart {
 
     public abstract LineChart getChart();
 
     public SampleData sampleData;
     public DataFrequency dataFrequency;
     public String sensorId;
+    
+
+
+    // buat nampilin datanya
+    XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+
+    XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+
+    XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+
+    final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 }
 
 class ChartAmplitude extends Chart {
@@ -112,11 +126,10 @@ class ChartAmplitude extends Chart {
     final int WINDOW_SIZE = 10;
     private ScheduledExecutorService scheduledExecutorService;
     public LineChart<String, Number> lineChart;
-
     public ChartAmplitude(SampleData sample, DataFrequency df, String id) {
         this.sampleData = sample;
         this.sensorId = id;
-        this.dataFrequency = df;
+        this.dataFrequency = df;	
     }
 
     public void setSensorId(String sensorId) {
@@ -140,56 +153,71 @@ class ChartAmplitude extends Chart {
         lineChart = new LineChart<>(x, y);
         lineChart.setAnimated(false);
 
-        // buat nampilin datanya
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Sumbu X");
-
-        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.setName("Sumbu Y");
-
-        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
         series3.setName("Sumbu Z");
-
+        
         // add series to chart
         lineChart.getData().add(series1);
         lineChart.getData().add(series2);
         lineChart.getData().add(series3);
 
         // setup scenev
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
         // setup executor to put data periodically
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
         // put data per second
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
+//        scheduledExecutorService.scheduleAtFixedRate(() -> {
 
             // update chartnya
-            Platform.runLater(() -> {
+//            Platform.runLater(() -> {
                 // dapetin waktu skrng
-                Date now = new Date();
-                this.lineChart.setTitle("Grafik Amplitudo " +sensorId);
-                // taro random number dengan waktu skrng
-                series1.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getX()));
-                series2.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getY()));
-                series3.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getZ()));
-                if (series1.getData().size() > WINDOW_SIZE) {
-                    series1.getData().remove(0);
-                    series2.getData().remove(0);
-                    series3.getData().remove(0);
-                }
-
-            });
-        }, 0, 1, TimeUnit.SECONDS);
+//                Date now = new Date();
+//                this.lineChart.setTitle("Grafik Amplitudo " +sensorId);
+//                // taro random number dengan waktu skrng
+//                series1.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getX()));
+//                series2.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getY()));
+//                series3.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getZ()));
+//                if (series1.getData().size() > WINDOW_SIZE) {
+//                    series1.getData().remove(0);
+//                    series2.getData().remove(0);
+//                    series3.getData().remove(0);
+//                }
+        render();
+//            });
+//        }, 0, 1, TimeUnit.SECONDS);
         return this.lineChart;
     }
 
+    
+    public void render() {
+    	Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+
+		    	Date now = new Date();
+		        lineChart.setTitle("Grafik Amplitudo " +sensorId);
+		        // taro random number dengan waktu skrng
+		        series1.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getX()));
+		        series2.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getY()));
+		        series3.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), getZ()));
+		        if (series1.getData().size() > WINDOW_SIZE) {
+		            series1.getData().remove(0);
+		            series2.getData().remove(0);
+		            series3.getData().remove(0);
+		        }
+				
+			}
+		});
+    }
     public double getX() {
         double hasil = 0;
         for (double b : sampleData.X) {
             hasil += b;
         }
-        return hasil;
+        return hasil/sampleData.X.size();
     }
 
     public double getY() {
@@ -197,7 +225,7 @@ class ChartAmplitude extends Chart {
         for (double b : sampleData.Y) {
             hasil += b;
         }
-        return hasil;
+        return hasil/sampleData.Y.size();
     }
 
     public double getZ() {
@@ -205,7 +233,7 @@ class ChartAmplitude extends Chart {
         for (double b : sampleData.Z) {
             hasil += b;
         }
-        return hasil;
+        return hasil/sampleData.Z.size();
     }
 }
 
@@ -246,13 +274,13 @@ class ChartFrequency extends Chart {
         lineChart.setAnimated(false);
 
         // buat nampilin datanya
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+//        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Sumbu X");
 
-        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+//        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.setName("Sumbu Y");
 
-        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+//        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
         series3.setName("Sumbu Z");
 
         // add series to chart
@@ -260,38 +288,65 @@ class ChartFrequency extends Chart {
         lineChart.getData().add(series2);
         lineChart.getData().add(series3);
 
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+//        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
         // setup executor to put data periodically
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
         // put data per second
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
-
-            // update chartnya
-            Platform.runLater(() -> {
+//        scheduledExecutorService.scheduleAtFixedRate(() -> {
+//
+//            // update chartnya
+//            Platform.runLater(() -> {
                 // dapetin waktu skrng
-                this.lineChart.setTitle("Grafik Frekuensi " +sensorId);
-                Date now = new Date();
-                series1.getData()
-                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.X));
-                series2.getData()
-                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Y));
-                series3.getData()
-                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Z));
-                tempX = dataFrequency.X;
-                tempY = dataFrequency.Y;
-                tempZ = dataFrequency.Z;
-                if (series1.getData().size() > WINDOW_SIZE) {
-                    series1.getData().remove(0);
-                    series2.getData().remove(0);
-                    series3.getData().remove(0);
-                }
-
-            });
-        }, 0, 1, TimeUnit.SECONDS);
+//                this.lineChart.setTitle("Grafik Frekuensi " +sensorId);
+//                Date now = new Date();
+//                series1.getData()
+//                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.X));
+//                series2.getData()
+//                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Y));
+//                series3.getData()
+//                        .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Z));
+//                tempX = dataFrequency.X;
+//                tempY = dataFrequency.Y;
+//                tempZ = dataFrequency.Z;
+//                if (series1.getData().size() > WINDOW_SIZE) {
+//                    series1.getData().remove(0);
+//                    series2.getData().remove(0);
+//                    series3.getData().remove(0);
+//                }
+//
+//            });
+//        }, 0, 1, TimeUnit.SECONDS);
+        render();
         return this.lineChart;
 
+    }
+    
+    public void render() {
+    	Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				lineChart.setTitle("Grafik Frekuensi " +sensorId);
+		        Date now = new Date();
+		        series1.getData()
+		                .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.X));
+		        series2.getData()
+		                .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Y));
+		        series3.getData()
+		                .add(new XYChart.Data<>(simpleDateFormat.format(now), dataFrequency.Z));
+		        tempX = dataFrequency.X;
+		        tempY = dataFrequency.Y;
+		        tempZ = dataFrequency.Z;
+		        if (series1.getData().size() > WINDOW_SIZE) {
+		            series1.getData().remove(0);
+		            series2.getData().remove(0);
+		            series3.getData().remove(0);
+		        }
+				
+			}
+		});
     }
 
 }

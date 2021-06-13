@@ -9,12 +9,18 @@ public class SampleData {
     public List<Double> Y;
     public List<Double> Z;
     public final int MAX;
+    private int counter = 0;
+    private RenderChart rc;
 
     public SampleData(int banyak) {
         MAX = banyak;
         this.X = Collections.synchronizedList(new ArrayList<>());
         this.Y = Collections.synchronizedList(new ArrayList<>());
         this.Z = Collections.synchronizedList(new ArrayList<>());
+    }
+    
+    public void setRender(RenderChart rc) {
+    	this.rc = rc;
     }
 
     public void addX(double titikX) {
@@ -35,6 +41,11 @@ public class SampleData {
         this.Z.add(titikZ);
         if (this.Z.size() > MAX) {
             this.Z.remove(0);
+        }
+        counter++;
+        if(counter == 32) {
+        	counter = 0;
+        	rc.render();
         }
     }
 

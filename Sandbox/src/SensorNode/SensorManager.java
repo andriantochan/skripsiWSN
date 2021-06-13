@@ -99,10 +99,8 @@ public class SensorManager {
 										while(sensing) {
 											resTemp = accel.sensing();
 											String message = "2"+sensorId+", "+resTemp[0]+", "+resTemp[1]+", "+resTemp[2]+"\n";
-											if(message.length() > 1) {
-												send(message, SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);	
-												Thread.sleep(100);
-											}
+											send(message, SENSOR_NODE_ADDRESS, BASE_STATION_ADRESS, fio);	
+											Thread.sleep(100);
 										}
 									}
 									catch (InterruptedException e) {

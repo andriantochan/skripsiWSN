@@ -843,11 +843,6 @@
 	18		<init>(Lcom/virtenio/driver/flash/Flash;ILcom/virtenio/driver/flash/FlashWriteListener;)V
 	2		getAddress()I
 
-111		SensorNode/Accelerometer
-	60		init()V
-	45		sensing()[F
-	6		<init>()V
-
 110		com/virtenio/driver/DriverException
 	80		getMessage()Ljava/lang/String;
 	11		<init>(ILjava/lang/String;)V
@@ -892,6 +887,11 @@
 	5		getType()I
 	2		getFrameControlInt()I
 	2		getValue()I
+
+90		SensorNode/Accelerometer
+	60		init()V
+	24		sensing()[F
+	6		<init>()V
 
 72		com/virtenio/driver/spi/SPIOutputStream
 	32		write([BII)V

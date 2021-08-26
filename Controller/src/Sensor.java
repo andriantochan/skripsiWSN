@@ -191,7 +191,6 @@ public class Sensor extends Application {
 			                                        dataCon.flush();
 			                                        String temp = br.readLine();
 //			                                        System.out.println(temp);
-			                                        System.out.println(temp);
 			                                        String[] hasil = temp.split(",");
 			                                        if (hasil[0].charAt(0) == '2') {
 			                                            String sensorid = hasil[0].substring(1);

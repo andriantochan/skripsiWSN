@@ -1,0 +1,80 @@
+%versi 2 (8-10-2016) 
+\chapter{Pendahuluan}
+\label{chap:intro}
+   
+\section{Latar Belakang}
+\label{sec:label}
+
+Kesehatan sebuah bangunan/gedung merupakan salah satu persyaratan teknis yang harus ada saat mengurus IMB. Izin Mendirikan Bangunan (IMB) adalah sebuah perizinan yang diberikan oleh Kepala Daerah kepada pemilik bangunan untuk membangun baru, mengubah, memperluas, mengurangi, dan/atau merawat bangunan sesuai dengan persyaratan administratif dan persyaratan teknis yang berlaku. IMB ini sangat penting khususnya untuk bangunan atau gedung yang bertingkat seperti gedung-gedung yang ada di Universitas Katolik Parahyangan. Salah satu gedung yang ada di Universitas Katolik Parahyangan adalah gedung 10 yang termasuk juga area \textit{rooftop}.
+
+
+Salah satu parameter dalam pemantauan kesehatan sebuah gedung atau bangunan adalah getaran. Getaran yang terjadi pada sebuah bangunan dapat dipengaruhi oleh dua faktor. Faktor yang pertama adalah faktor dari bumi dan faktor kedua adalah faktor dari dalam gedung itu sendiri. Getaran merupakan salah satu faktor penyebab gempa bumi dimana terjadi pada kerak bumi sebagai gejala aktivitas tektonis maupun vulkanis. Pada umumnya getaran ini diakibatkan oleh adanya pergeseran lempeng pada permukaan bumi sehingga dapat terjadi gelombang gempa bumi. Getaran yang berasal dari gedung itu sendiri dapat dicontohkan dengan adanya mesin bertenaga besar yang terdapat dalam gedung tersebut seperti lift. Mesin dengan tenaga yang besar ini perlahan-lahan dapat menyebabkan sebuah gedung merasakan sebuah getaran yang lama kelamaan membuat gedung ini menjadi tidak stabil dan membuat kesehatan gedung menjadi memburuk. 
+
+Seiring berkembangnya teknologi, getaran pada suatu bangunan dapat dilihat untuk memberikan kemudahan dalam melakukan pengukuran data agar menjadi lebih efektif. Proses ini digunakan sebagai pengamatan, perekaman, dan pengevaluasian dalam hal ini adalah getaran pada sebuah bangunan atau gedung untuk menilai kesehatan secara berkelanjutan. Getaran pada sebuah gedung dapat ditangkap dengan menggunakan sensor \textit{Accelerometer} yang disebar di sisi gedung yang membentuk sebuah jaringan sensor nirkabel atau istilah lainnya \textit{Wireless Sensor Network}.
+
+\textit{Wireless Sensor Network} (WSN) adalah kumpulan sejumlah node yang diatur dalam sebuah jaringan. Masing-masing node dalam jaringan sensor nirkabel biasanya dilengkapi dengan radio transceiver, mikrokontroler, dan sumber energi seperti baterai. Banyak aplikasi yang bisa dilakukan menggunakan jaringan sensor nirkabel, misalnya pengumpulan data kondisi lingkungan, \textit{security monitoring}, dan \textit{node tracking scenarios}. Penggunaan WSN dapat menjadi alternatif untuk melakukan pemantauan getaran sebuah gedung. Dengan adanya WSN, pemantauan getaran pada sebuah gedung dapat dilakukan dengan lebih mudah sehingga dapat memungkinkan pengguna mendapatkan informasi seperti amplitudo secara \textit{real time} dengan tingkat akurasi yang tinggi.  
+
+Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan hasil pantauan getaran sebuah gedung yang ditampilkan dalam bentuk \textit{graph} dengan menggunakan WSN. Dengan menggunakan perangkat lunak tersebut, dapat diketahui seberapa besar getaran yang terjadi pada sebuah gedung sehingga dapat mengetahui besar kecilnya getaran yang dihasilkan tersebut. Nilai yang didapatkan adalah amplitudo dan frekuensi. Hasil dari kedua nilai ini akan mempengaruhi apakah sebuah gedung itu masih dalam keadaan sehat ataupun tidak.
+
+\section{Rumusan Masalah}
+\label{sec:rumusan}
+Masalah-masalah yang ingin diselesaikan dalam skripsi ini adalah sebagai berikut:
+\begin{itemize}
+	\item Bagaimana sensor \textit{Accelerometer} bekerja?
+	\item Bagaimana \textit{Wireless Sensor Network} bekerja?
+	\item Bagaimana membangun aplikasi pemantauan getaran gedung dengan menggunakan jaringan \textit{wireless} sensor?
+\end{itemize}
+
+\section{Tujuan}
+\label{sec:tujuan}
+Tujuan-tujuan dari pembuatan perangkat lunak adalah sebagai berikut:
+\begin{itemize}
+	\item Mempelajari cara kerja sensor \textit{accelerometer}.
+	\item Mempelajari cara kerja \textit{Wireless Sensor Network}.
+	\item Membangun aplikasi pemantauan getaran gedung menggunakan \textit{Wireless Sensor Network } (WSN).
+\end{itemize}
+
+\section{Batasan Masalah}
+\label{sec:batasan}
+Penelitian ini dibuat berdasarkan batasan-batasan sebagai berikut:
+\begin{itemize}
+	\item Sensor yang digunakan sebagai penelitian hanya sensor untuk mengukur getaran.
+	\item Sensor digunakan untuk mengukur getaran pada gedung-gedung yang ada di Universitas Katolik Parahyangan dan Mall Paskal 23 Square. 
+	\item Topologi yang akan digunakan dalam penelitian ini adalah topologi \textit{star} dan topologi \textit{tree}
+	\item Fokus utama penelitian ini adalah membangun aplikasi yang menangkap hasil \textit{sensing} pada sensor \textit{Accelerometer}
+\end{itemize}
+
+
+\section{Metodologi}
+\label{sec:metlit}
+Berikut adalah metode penelitian yang digunakan dalam penelitian ini:
+\begin{itemize}
+	\item Melakukan studi literatur mengenai \textit{Wireless Sensor Network}.
+	\item Mempelajari cara kerja sensor \textit{Accelerometer}.
+	\item Mempelajari sistem \textit{Structural Health Monitoring} (SHM).
+	\item Mempelajari pemograman pada Wireless Sensor Network dengan Bahasa Pemograman JAVA.
+	\item Membangun infrastruktur jaringan \textit{Wireles Sensor Network} (WSN).
+	\item Mengimplementasi kode program pada sensor \textit{accelerometer}.
+	\item Melakukan pengujian aplikasi pemantauan di sekitar gedung yang ada di Universitas Katolik Parahyangan 
+\end{itemize}
+
+\section{Sistematika Pembahasan}
+\label{sec:sispem}
+Setiap bab dalam penelitian ini memiliki sistematika penulisan yang dijelaskan sebagai berikut:
+\paragraph{}
+Bab 1 Pendahuluan, yaitu membahas mengenai gambaran umum penelitian yang dilakukan ini. Berisi tentang latar belakang, rumusan masalah, tujuan, batasan masalah, metode penelitian, dan sistematika pembahasan.
+
+
+Bab 2 Dasar Teori, yaitu membahas teori-teori yang mendukung berjalannya penelitian ini. 
+
+
+Bab 3 Analisis, yaitu membahas mengenai analisis dari aplikasi yang akan dibuat seperti fungsi-fungsi apa saja yang terdapat dalam aplikasi yang akan dibuat.
+
+
+Bab 4 Perancangan, yaitu membahas diagram kelas dari aplikasi yang akan dibuat, membahas juga beberapa fungsi-fungsi penting yang akan digunakan dalam pembuatan aplikasi ini.
+
+
+Bab 5 Implementasi dan Pengujian, yaitu membahas implementasi dari hasil rancangan dan pengujian dari aplikasi WSN yang telah dibuat dan pengujian aplikasi yang telah dibuat.
+
+
+Bab 6 Kesimpulan, yaitu membahas kesimpulan dari hasil pengujian dan saran untuk pengembangan selanjutnya.

@@ -34,11 +34,12 @@ public class BaseStation {
 	};
 		
 	private static int curr = node_list[0];
-	
 	private static int[] connectedNode = new int[] {
 		node_list[1],
 		node_list[2],
-		node_list[3]
+		node_list[3],
+		node_list[4],
+		node_list[5]
 	};
 	
 	public static HashMap<String, Integer> addressNodeMap;
